@@ -5,7 +5,7 @@
 
 body {
     display: grid;
-    grid-template: 150px calc(100vh - 150px) / 250px calc(100vw - 250px);
+    grid-template: 150px calc(100% - 150px) / 250px calc(100% - 250px);
     grid-template-areas:
             "s h"
             "s m";
@@ -68,10 +68,16 @@ body {
 
 .leftgrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    /*grid-template-columns: repeat(2, 1fr);*/
+    /*grid-template-rows: repeat(3, 1fr);*/
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px;
     padding: 10px;
+    justify-content: center;
+}
+
+.left-grid-header {
+    padding-left: 20px;
 }
 
 .leftgrid > .card {
@@ -80,7 +86,7 @@ body {
     /*height: 200px;*/
     background-color: white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px 15px;
 }
 
 .trending-grid {
@@ -113,10 +119,17 @@ p.username {
 }
 
 input.search {
-    background-color: #aaffec;
+    background-color: lightgrey;
     border: 0;
     border-radius: 3px;
     line-height: 1.5rem;
+    padding: 2px 5px;
+    font-size: 1.2rem;
+}
+
+input.search:focus {
+    outline: 0;
+    border: 1px solid grey;
 }
 
 .current-user {
@@ -126,7 +139,7 @@ input.search {
 
 .header {
     display: grid;
-    grid-template: 1fr 1fr / 1fr;
+    grid-template: auto 1fr / 1fr;
     align-items: center;
 }
 
